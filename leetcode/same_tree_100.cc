@@ -1,0 +1,20 @@
+//Given two binary trees, write a function to check if they are equal or not. 
+
+/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isSameTree(TreeNode *p, TreeNode *q) {
+        if (!p && q || p && !q) return false;
+        else if (!p && !q) return true;
+        else return (p->val == q->val) && isSameTree(p->left, q->left) && isSameTree(p->right, q->right);  
+    }
+};
+
