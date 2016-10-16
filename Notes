@@ -1,2 +1,8 @@
 Priority_queue and Lamda expression
 http://www.cnblogs.com/64open/p/5267678.html
+
+For example:
+ auto mycomp = [&nums1, &nums2](pair<int,int> a, pair<int,int> b) {
+            return nums1[a.first]+nums2[a.second] > nums1[b.first]+nums2[b.second];
+        };
+priority_queue<pair<int,int>, vector<pair<int,int>>, decltype(mycomp)> minHeap(mycomp);
